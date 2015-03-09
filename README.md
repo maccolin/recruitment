@@ -1,2 +1,2 @@
-# recruitment
-Clan MacColin Recruitment and Freshman Tracking Application.
+# CMC Recruitment
+The Clan MacColin Recruitment and Freshman Tracking Application \(CMC-RFTA\[?\]\) is for the recruiting agency of Clan MacColin to better track lead capturing, recruit/freshman management, peer counsulor activities, and statistics. The software is along the lines of a highly specialized CRM software.
