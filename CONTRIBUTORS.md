@@ -16,4 +16,4 @@ To become a contributor, all you need to do is submit pull request. For those ne
 6. make a pull request on this repo referencing your changes and describe what you changed and what it solves.
 7. if the changes fix a problem in an issue or milestone, comment on the issue thread that your pull request fixes that issue.
 
-I know we will have a great time working together! :+1
+I know we will have a great time working together! :+1:
