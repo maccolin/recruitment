@@ -8,7 +8,16 @@
 module.exports = {
 
   attributes: {
-
+    username: {
+      type: "string",
+      primaryKey: true
+    },
+    password: "string",
+    name: "string",
+    email: "email",
+    charges: {
+      collection: 'contact'
+    }
   }
 };
 
