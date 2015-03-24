@@ -1,8 +1,8 @@
 {
   "name": "RaFTA",
   "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
+  "version": "0.0.1",
+  "description": "The MacColin Recruitment and Freshmen Tracking Application, RaFTA, is a custom CRM for the purposes of tracking and maintaining incomimg Clan MacColin Freshmen and helping us track them as they aclimate to the MacColin life.",
   "keywords": [],
   "dependencies": {
     "grunt": "0.4.2",
