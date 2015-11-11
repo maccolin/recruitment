@@ -1,0 +1,19 @@
+{
+  "name": "RaFTA",
+  "description": "Recruitment and Freshman Tracking Application (RaFTA) is a customized Customer Relations Management (CRM) software for the purposes of Clan MacColin&#39;s new participant tracking and pre-event telethons",
+  "main": "server.js",
+  "authors": [
+    "Rhett Lowe @rhettl"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/components",
+    "test",
+    "tests"
+  ]
+}
