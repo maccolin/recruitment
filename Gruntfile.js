@@ -8,11 +8,8 @@ module.exports = function (grunt) {
     configDir: require('path').resolve('tasks')
   });
 
-  grunt.loadNpmTasks('grunt-makara-browserify');
-
-
   // Register group tasks
-  grunt.registerTask('build', ['jshint', 'dustjs', 'makara-browserify', 'sass', 'browserify', 'copyto']);
-  grunt.registerTask('test', ['jshint', 'mochacli']);
+  grunt.registerTask('build', ['eslint', 'eslint', 'dustjs', 'sass', 'copyto']);
+  grunt.registerTask('test', [ 'eslint', 'mochacli' ]);
 
 };

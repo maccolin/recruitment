@@ -89,10 +89,10 @@ Person.pre('save', function (next) {
   }
 });
 
-var newToken                = function (user) {
+var newToken                = function (user) { // eslint-disable-line no-unused-vars
 
 };
-Person.statics.loginByToken = function (token, callback) {
+Person.statics.loginByToken = function (token, callback) { // eslint-disable-line no-unused-vars
   // do something -- not yet implemented
 };
 Person.statics.login        = function (email, pass, callback) {
