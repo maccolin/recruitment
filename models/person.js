@@ -21,16 +21,19 @@ var Person = mongoose.Schema({
     type     : String,
     lowercase: true,
     trim     : true,
+    default  : 'contact',
+    required : true,
     validate : {
       validator: function (v) {
         return /admin|user|veteran|freshman|contact/i.test(v);
       },
-      message  : "{VALUE} is not a valid user type."
+      message  : '{VALUE} is not a valid user type.'
     }
   },
   name       : {
-    first: String,
-    last : String
+    first : String,
+    middle: String,
+    last  : String
   },
   email      : {
     type    : String,
@@ -51,7 +54,7 @@ var Person = mongoose.Schema({
       message  : '{VALUE} is not in a valid phone number format.'
     }
   },
-  age        : Number,
+  dob        : Date,
   /* ^^^ consider changing to approxYearOfBirth. example, I say I am 27, it estimates I was born
    * 1988, I was born in 1987, dec, but not too far off
    */
@@ -74,7 +77,7 @@ var Person = mongoose.Schema({
  *
  */
 
-Person.pre('save', function(next){
+Person.pre('save', function (next) {
   if (this.password) {
     var self = this;
     password.hash(this.password)
@@ -86,17 +89,38 @@ Person.pre('save', function(next){
   }
 });
 
-Person.statics.login = function (email, pass, callback) {
-  this.findOne({email: email}, function(err, p){
+var newToken                = function (user) {
+
+};
+Person.statics.loginByToken = function (token, callback) {
+  // do something -- not yet implemented
+};
+Person.statics.login        = function (email, pass, callback) {
+  if (!pass || (typeof pass === 'function' && !callback)) {
+    return this.loginByToken(email, pass); // not yet implemented
+  }
+
+  var self = this;
+  self.findOne({email: email, type: {$in: ['user', 'admin']}}, function (err, p) {
     if (err) {
       callback(err);
     } else {
-      password.compare(p.password, pass).nodeify(callback);
+      password.compare(pass, p.password, function (err, res) {
+        if (err) {
+          callback(err);
+        } else if (res) {
+          callback(null, p);
+        } else {
+          res = newToken(res);
+          callback(null, res);
+        }
+      });
     }
   });
 };
 
-Person.methods.setPassword = function(pass, callback){
+
+Person.methods.setPassword = function (pass, callback) {
   var self = this;
   password.hash(pass)
     .then(function (hash) {
@@ -106,7 +130,7 @@ Person.methods.setPassword = function(pass, callback){
   ;
 };
 
-Person.methods.removePassword = function(callback){
+Person.methods.removePassword = function (callback) {
   this.password = '';
   this.save(callback);
 };

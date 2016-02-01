@@ -1,0 +1,10 @@
+{>"layouts/simple" /}
+
+{<body}
+  <div class="top-padding hidden-xs"></div>
+  <h1>Email Resubmissoin</h1>
+  <p>
+    You are trying to re-submit. You may not submit the same email twice as one person may only be interviewed once. If
+    you feel you have reached this message in error, please contact us at <a href="mailto:mat-interviews@uci.edu">mat-interviews@uci.edu</a>.
+  </p>
+{/body}

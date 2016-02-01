@@ -12,22 +12,22 @@ var options, app;
  * See https://github.com/krakenjs/kraken-js#options for additional configuration options.
  */
 options = {
-    onconfig: function (config, next) {
-        /*
-         * Add any additional config setup or overrides here. `config` is an initialized
-         * `confit` (https://github.com/krakenjs/confit/) configuration object.
-         */
+  onconfig: function (config, next) {
+    /*
+     * Add any additional config setup or overrides here. `config` is an initialized
+     * `confit` (https://github.com/krakenjs/confit/) configuration object.
+     */
 
-        //Configure the database
-        db.config(config.get('database'));
+    //Configure the database
+    db.config(config.get('database'));
 
-        next(null, config);
-    }
+    next(null, config);
+  }
 };
 
 app = module.exports = express();
 app.use(kraken(options));
 app.on('start', function () {
-    console.log('Application ready to serve requests.');
-    console.log('Environment: %s', app.kraken.get('env:env'));
+  console.log('Application ready to serve requests.');
+  console.log('Environment: %s', app.kraken.get('env:env'));
 });

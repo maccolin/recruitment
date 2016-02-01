@@ -1,13 +1,14 @@
 {
   "generator-kraken": {
     "taskModule": "grunt",
-    "description": "Recruitment and Freshman Tracking Application (RaFTA) is a customized Customer Relations Management (CRM) software for the purposes of Clan MacColin's new participant tracking and pre-event telethons",
-    "author": "Rhett Lowe @rhettl",
+    "lintModule": "eslint",
+    "description": "Recruitment and Freshman Tracking Apllication",
+    "author": "Rhett Lowe",
     "templateModule": "makara",
-    "i18n": "i18n",
+    "i18n": false,
     "componentPackager": "bower",
     "cssModule": "sass",
-    "jsModule": "browserify",
+    "jsModule": false,
     "useJson": null
   }
 }

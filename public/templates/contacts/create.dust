@@ -1,0 +1,5 @@
+{>"layouts/simple" /}
+
+{<body}
+  <h1>New Contact</h1>
+{/body}

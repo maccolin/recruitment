@@ -1,67 +1,98 @@
 {
-    "express": {
-        "view cache": false,
-        "view engine": "js",
-        "views": "path:./.build/templates"
-    },
-    "view engines": {
-        "js": {
-            "module": "makara",
-            "renderer": {
-                "method": "js",
-                "arguments": [
-                    {
-                        "cache": true,
-                        "helpers": "config:dust.helpers"
-                    }
-                ]
-            }
-        }
-    },
-    "dust": {
-        "helpers": [
-            "dust-makara-helpers"
+  "express": {
+    "view cache": false,
+    "view engine": "js",
+    "views": "path:./.build/templates"
+  },
+  "view engines": {
+    "js": {
+      "module": "makara",
+      "renderer": {
+        "method": "js",
+        "arguments": [
+          {
+            "cache": true,
+            "helpers": "config:dust.helpers"
+          }
         ]
-    },
-    "i18n": {
-        "contentPath": "path:./locales",
-        "fallback": "en-US"
-    },
-    "specialization": {
-    },
-    "database": {
-        "host": "localhost",
-        "database": "rafta"
-    },
-    "middleware": {
-        "makara": {
-            "priority": 100,
-            "enabled": true,
-            "module": {
-                "name": "makara",
-                "arguments": [
-                    {
-                        "i18n": "config:i18n",
-                        "specialization": "config:specialization"
-                    }
-                ]
-            }
-        },
-        "static": {
-            "module": {
-                "arguments": [
-                    "path:./.build"
-                ]
-            }
-        },
-        "router": {
-            "module": {
-                "arguments": [
-                    {
-                        "directory": "path:./controllers"
-                    }
-                ]
-            }
-        }
+      }
     }
+  },
+  "dust": {
+    "helpers": [
+    ]
+  },
+  "specialization": {
+  },
+  "database": {
+    "host": "localhost",
+    "database": "rafta"
+  },
+  "middleware": {
+    "makara": {
+      "priority": 100,
+      "enabled": true,
+      "module": {
+        "name": "makara",
+        "arguments": [
+          {
+            "i18n": "config:i18n",
+            "specialization": "config:specialization"
+          }
+        ]
+      }
+    },
+    "static": {
+      "module": {
+        "arguments": [
+          "path:./.build"
+        ]
+      }
+    },
+    "router": {
+      "module": {
+        "arguments": [
+          {
+            "directory": "path:./controllers"
+          }
+        ]
+      }
+    },
+    "login": {
+      "priority": 99,
+      "module": {
+        "name": "path:./lib/authenticate"
+      }
+    },
+    "notfound": {
+      "enabled": true,
+      "priority": 125,
+      // anything after the default router which is priority 120
+      "module": {
+        "name": "kraken-js/middleware/404",
+        "arguments": [
+          "errors/404"
+        ]
+      }
+    },
+    "customerrors": {
+      "enabled": true,
+      "priority": 126,
+      "module": {
+        "name": "path:./lib/customErrors",
+        "arguments": []
+      }
+    },
+    "errorhandler": {
+      "enabled": true,
+      "priority": 130,
+      // generally should be the last thing so, in this case, anything after 125
+      "module": {
+        "name": "kraken-js/middleware/500",
+        "arguments": [
+          "errors/500"
+        ]
+      }
+    }
+  }
 }

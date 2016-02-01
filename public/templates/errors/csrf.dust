@@ -1,0 +1,7 @@
+{>"layouts/simple" /}
+
+{<body}
+  <div class="top-padding hidden-xs"></div>
+  <h1>CSRF Error</h1>
+  <p>You have tried to POST a form with an invalid CSRF tag. This probably means you have waited too long to post the form and the tag expired. Please return to the form, refresh if necessary, and resubmit.</p>
+{/body}

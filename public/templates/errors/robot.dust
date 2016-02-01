@@ -1,0 +1,12 @@
+{>"layouts/simple" /}
+
+{<body}
+  <div class="top-padding hidden-xs"></div>
+  <h1>Danger, Will Robinson!!</h1>
+  <p>
+    You have tripped the robot alarm. You are either a robot attempting to submit a form or have otherwise failed the
+    human verification test. Either way, your IP address has been reported, please do not continue to fill out this form
+    as it will not submit. If you feel this message is in error, please contact the School of Education.
+  </p>
+  <img src="/images/robot.jpg" alt="Robot, Lost in Space" class="img-responsive img-rounded col-sm-8 col-sm-offset-2" />
+{/body}

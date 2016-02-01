@@ -1,0 +1,6 @@
+{>"layouts/simple" /}
+
+{<body}
+    <h1>Error</h1>
+    <p>There has been an error</p>
+{/body}
